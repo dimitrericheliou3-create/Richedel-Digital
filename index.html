@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Richedel Digital | High-Performance Web Design</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <div class="logo">Richedel Digital
+        <span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">Available for New Projects</div>
+      <h1>Websites built for speed, brand impact, and conversions.</h1>
+      <p>We ditch the heavy, bloated frameworks to build lightning-fast, minimalist websites engineered to turn local browsers into lifelong clients.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start Your Project</a>
+        <a href="#work" class="btn btn-secondary">View Our Work</a>
+      </div>
+    </section>
+
+    <!-- Metrics / Social Proof Bar -->
+    <section class="metrics-bar">
+      <div class="metric-item">
+        <h3>100%</h3>
+        <p>Vanilla Code Stack</p>
+      </div>
+      <div class="metric-item">
+        <h3>0.4s</h3>
+        <p>Average Load Speed</p>
+      </div>
+      <div class="metric-item">
+        <h3>3x</h3>
+        <p>Conversion Growth</p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+      <div class="section-header">
+        <h2>Expertise Built For Growth</h2>
+        <p>Everything your business needs to dominate its digital presence.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Ultra-Fast Performance</h3>
+          <p>Built with clean HTML and CSS. No heavy plugins or slow page builders holding your system or SEO back.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Bespoke UI Design</h3>
+          <p>Tailored layouts that reflect your unique brand identity and build instant trust with your target audience.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3>Conversion Architecture</h3>
+          <p>Strategic information flow designed to guide visitors smoothly toward making an inquiry or purchase.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio / Work Section -->
+    <section id="work" class="section bg-alt">
+      <div class="section-header">
+        <h2>Selected Projects</h2>
+        <p>A glimpse into our high-impact digital craftsmanship.</p>
+      </div>
+      <div class="card-grid">
+        <div class="project-card">
+          <div class="project-mockup mockup-1">
+            <span>Island Bistro Landing Page</span>
+          </div>
+          <div class="project-info">
+            <h3>Culinary Experience Hub</h3>
+            <p>A clean, mobile-first interface featuring instant reservation tools and menu layouts.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-mockup mockup-2">
+            <span>Retail Storefront Site</span>
+          </div>
+          <div class="project-info">
+            <h3>Local Retail Showcase</h3>
+            <p>An immersive digital storefront built to drive both local foot traffic and online inquiries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section">
+      <div class="section-header">
+        <h2>How We Work</h2>
+        <p>A streamlined, hassle-free path from concept to launch.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <span>01</span>
+          <h3>Strategy</h3>
+          <p>We analyze your business goals, target audience, and local competitors.</p>
+        </div>
+        <div class="step">
+          <span>02</span>
+          <h3>Design & Code</h3>
+          <p>We craft lightweight, hand-coded interfaces optimized for all devices.</p>
+        </div>
+        <div class="step">
+          <span>03</span>
+          <h3>Launch</h3>
+          <p>Your site goes live instantly, ready to bring in high-value local clients.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-box">
+        <h2>Let's build something great together.</h2>
+        <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+        <form class="contact-form" action="https://formspree.io/f/xbgloyrl" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Tell us about your project..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Richedel Digital. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('particle-canvas');
+    const context = canvas.getContext('2d');
+    const particleColor = '#ff6b00';
+    const connectionDistance = 135;
+    const mouseInfluenceRadius = 170;
+    const particles = [];
+    const mouse = { x: 0, y: 0, active: false };
+    let animationFrame;
+
+    function createParticle() {
+      const speed = 0.15 + Math.random() * 0.3;
+
+      return {
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        radius: 1 + Math.random() * 1.4,
+        velocityX: (Math.random() - 0.5) * speed,
+        velocityY: (Math.random() - 0.5) * speed
+      };
+    }
+
+    function resizeCanvas() {
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = window.innerWidth * pixelRatio;
+      canvas.height = window.innerHeight * pixelRatio;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+      const particleCount = Math.min(110, Math.max(45, Math.floor((window.innerWidth * window.innerHeight) / 15000)));
+      while (particles.length < particleCount) particles.push(createParticle());
+      particles.length = particleCount;
+    }
+
+    function updateParticle(particle) {
+      if (mouse.active) {
+        const offsetX = mouse.x - particle.x;
+        const offsetY = mouse.y - particle.y;
+        const distance = Math.hypot(offsetX, offsetY);
+
+        if (distance > 0 && distance < mouseInfluenceRadius) {
+          const force = (1 - distance / mouseInfluenceRadius) * 0.012;
+          particle.velocityX += offsetX * force;
+          particle.velocityY += offsetY * force;
+        }
+      }
+
+      particle.velocityX *= 0.995;
+      particle.velocityY *= 0.995;
+      particle.x += particle.velocityX;
+      particle.y += particle.velocityY;
+
+      if (particle.x < -10) particle.x = window.innerWidth + 10;
+      if (particle.x > window.innerWidth + 10) particle.x = -10;
+      if (particle.y < -10) particle.y = window.innerHeight + 10;
+      if (particle.y > window.innerHeight + 10) particle.y = -10;
+    }
+
+    function drawParticles() {
+      context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      particles.forEach(updateParticle);
+
+      for (let firstIndex = 0; firstIndex < particles.length; firstIndex += 1) {
+        const firstParticle = particles[firstIndex];
+
+        for (let secondIndex = firstIndex + 1; secondIndex < particles.length; secondIndex += 1) {
+          const secondParticle = particles[secondIndex];
+          const distance = Math.hypot(firstParticle.x - secondParticle.x, firstParticle.y - secondParticle.y);
+
+          if (distance < connectionDistance) {
+            context.beginPath();
+            context.moveTo(firstParticle.x, firstParticle.y);
+            context.lineTo(secondParticle.x, secondParticle.y);
+            context.strokeStyle = `rgba(255, 107, 0, ${(1 - distance / connectionDistance) * 0.28})`;
+            context.lineWidth = 0.7;
+            context.stroke();
+          }
+        }
+      }
+
+      particles.forEach((particle) => {
+        context.beginPath();
+        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        context.fillStyle = particleColor;
+        context.globalAlpha = 0.65;
+        context.fill();
+      });
+
+      context.globalAlpha = 1;
+      animationFrame = requestAnimationFrame(drawParticles);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('mousemove', (event) => {
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+      mouse.active = true;
+    });
+    window.addEventListener('mouseout', (event) => {
+      if (!event.relatedTarget) mouse.active = false;
+    });
+
+    resizeCanvas();
+    drawParticles();
+  </script>
+
+</body>
+</html>
