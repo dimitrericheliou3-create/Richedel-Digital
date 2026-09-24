@@ -19,6 +19,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#process">Process</a></li>
+        <li><a href="#marketing-check">Marketing Check</a></li>
         <li><a href="#contact" class="nav-cta">Book a Call</a></li>
       </ul>
     </nav>
@@ -127,6 +128,67 @@
           <h3>Launch</h3>
           <p>Your site goes live instantly, ready to bring in high-value local clients.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Marketing Self-Assessment -->
+    <section id="marketing-check" class="section marketing-check-section">
+      <div class="section-header">
+        <span class="section-kicker">A quick reality check</span>
+        <h2>Are people finding you often enough?</h2>
+        <p>Answer five honest questions to see where your growth engine may need more attention.</p>
+      </div>
+      <div class="questionnaire-layout">
+        <form class="questionnaire" id="marketing-questionnaire">
+          <fieldset class="question-block">
+            <legend>01. How often are you actively reaching out to potential customers?</legend>
+            <label><input type="radio" name="outreach" value="3" required> Every week</label>
+            <label><input type="radio" name="outreach" value="2"> A few times a month</label>
+            <label><input type="radio" name="outreach" value="1"> Only when business is slow</label>
+            <label><input type="radio" name="outreach" value="0"> Almost never</label>
+          </fieldset>
+
+          <fieldset class="question-block">
+            <legend>02. How consistently are you advertising or promoting your business?</legend>
+            <label><input type="radio" name="advertising" value="3" required> We have a steady plan and budget</label>
+            <label><input type="radio" name="advertising" value="2"> We promote when we have time</label>
+            <label><input type="radio" name="advertising" value="1"> We have tried a few one-off ads</label>
+            <label><input type="radio" name="advertising" value="0"> We are not advertising right now</label>
+          </fieldset>
+
+          <fieldset class="question-block">
+            <legend>03. Can a new customer quickly understand why to choose you?</legend>
+            <label><input type="radio" name="positioning" value="3" required> Yes, it is clear everywhere we show up</label>
+            <label><input type="radio" name="positioning" value="2"> Mostly, but our message varies</label>
+            <label><input type="radio" name="positioning" value="1"> We explain it differently each time</label>
+            <label><input type="radio" name="positioning" value="0"> We have not defined it yet</label>
+          </fieldset>
+
+          <fieldset class="question-block">
+            <legend>04. Do you know which marketing efforts bring you leads?</legend>
+            <label><input type="radio" name="tracking" value="3" required> Yes, we track them regularly</label>
+            <label><input type="radio" name="tracking" value="2"> We have a general idea</label>
+            <label><input type="radio" name="tracking" value="1"> We mostly rely on gut feeling</label>
+            <label><input type="radio" name="tracking" value="0"> We are not tracking anything</label>
+          </fieldset>
+
+          <fieldset class="question-block">
+            <legend>05. How quickly do you follow up when someone shows interest?</legend>
+            <label><input type="radio" name="followup" value="3" required> The same day, with a clear next step</label>
+            <label><input type="radio" name="followup" value="2"> Within a few days</label>
+            <label><input type="radio" name="followup" value="1"> When we get a chance</label>
+            <label><input type="radio" name="followup" value="0"> We do not have a follow-up process</label>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary btn-full">See My Marketing Check</button>
+        </form>
+
+        <aside class="questionnaire-result" id="questionnaire-result" aria-live="polite">
+          <span class="result-label">Your result</span>
+          <div class="result-score"><strong id="result-score">--</strong><span>/ 15</span></div>
+          <h3 id="result-title">Where is your growth engine today?</h3>
+          <p id="result-message">Complete the questions for a clear starting point and one practical next move.</p>
+        </aside>
       </div>
     </section>
 
@@ -259,6 +321,34 @@
     });
     window.addEventListener('mouseout', (event) => {
       if (!event.relatedTarget) mouse.active = false;
+    });
+
+    const questionnaire = document.getElementById('marketing-questionnaire');
+    const resultPanel = document.getElementById('questionnaire-result');
+    const resultScore = document.getElementById('result-score');
+    const resultTitle = document.getElementById('result-title');
+    const resultMessage = document.getElementById('result-message');
+
+    questionnaire.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const answers = new FormData(questionnaire);
+      const score = ['outreach', 'advertising', 'positioning', 'tracking', 'followup']
+        .reduce((total, question) => total + Number(answers.get(question)), 0);
+      let title = 'You have a solid foundation.';
+      let message = 'Your next opportunity is consistency: keep showing up, measure what works, and make your website the clearest path to getting in touch.';
+
+      if (score < 6) {
+        title = 'Your visibility has room to grow.';
+        message = 'Start with a simple weekly outreach rhythm and a clear offer. A focused website can help every interaction turn into a better first impression.';
+      } else if (score < 11) {
+        title = 'You are moving, but there are gaps.';
+        message = 'You have momentum. Tighten your message, choose one channel to commit to, and track where your best inquiries are coming from.';
+      }
+
+      resultScore.textContent = score;
+      resultTitle.textContent = title;
+      resultMessage.textContent = message;
+      resultPanel.classList.add('is-complete');
     });
 
     resizeCanvas();
