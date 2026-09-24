@@ -160,7 +160,7 @@
     const canvas = document.getElementById('particle-canvas');
     const context = canvas.getContext('2d');
     const particleColor = '#ff6b00';
-    const connectionDistance = 135;
+    const connectionDistance = 155;
     const mouseInfluenceRadius = 170;
     const particles = [];
     const mouse = { x: 0, y: 0, active: false };
@@ -172,7 +172,7 @@
       return {
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        radius: 1 + Math.random() * 1.4,
+        radius: 1.4 + Math.random() * 1.8,
         velocityX: (Math.random() - 0.5) * speed,
         velocityY: (Math.random() - 0.5) * speed
       };
@@ -233,7 +233,7 @@
             context.moveTo(firstParticle.x, firstParticle.y);
             context.lineTo(secondParticle.x, secondParticle.y);
             context.strokeStyle = `rgba(255, 107, 0, ${(1 - distance / connectionDistance) * 0.28})`;
-            context.lineWidth = 0.7;
+            context.lineWidth = 0.9;
             context.stroke();
           }
         }
