@@ -8,8 +8,6 @@
 </head>
 <body>
 
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
   <!-- Header / Navigation -->
   <header class="site-header">
     <nav class="nav-container">
@@ -219,110 +217,6 @@
   </footer>
 
   <script>
-    const canvas = document.getElementById('particle-canvas');
-    const context = canvas.getContext('2d');
-    const particleColor = '#ff6b00';
-    const connectionDistance = 155;
-    const mouseInfluenceRadius = 170;
-    const particles = [];
-    const mouse = { x: 0, y: 0, active: false };
-    let animationFrame;
-
-    function createParticle() {
-      const speed = 0.15 + Math.random() * 0.3;
-
-      return {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        radius: 1.4 + Math.random() * 1.8,
-        velocityX: (Math.random() - 0.5) * speed,
-        velocityY: (Math.random() - 0.5) * speed
-      };
-    }
-
-    function resizeCanvas() {
-      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-
-      canvas.width = window.innerWidth * pixelRatio;
-      canvas.height = window.innerHeight * pixelRatio;
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
-      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-
-      const particleCount = Math.min(110, Math.max(45, Math.floor((window.innerWidth * window.innerHeight) / 15000)));
-      while (particles.length < particleCount) particles.push(createParticle());
-      particles.length = particleCount;
-    }
-
-    function updateParticle(particle) {
-      if (mouse.active) {
-        const offsetX = mouse.x - particle.x;
-        const offsetY = mouse.y - particle.y;
-        const distance = Math.hypot(offsetX, offsetY);
-
-        if (distance > 0 && distance < mouseInfluenceRadius) {
-          const force = (1 - distance / mouseInfluenceRadius) * 0.012;
-          particle.velocityX += offsetX * force;
-          particle.velocityY += offsetY * force;
-        }
-      }
-
-      particle.velocityX *= 0.995;
-      particle.velocityY *= 0.995;
-      particle.x += particle.velocityX;
-      particle.y += particle.velocityY;
-
-      if (particle.x < -10) particle.x = window.innerWidth + 10;
-      if (particle.x > window.innerWidth + 10) particle.x = -10;
-      if (particle.y < -10) particle.y = window.innerHeight + 10;
-      if (particle.y > window.innerHeight + 10) particle.y = -10;
-    }
-
-    function drawParticles() {
-      context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-      particles.forEach(updateParticle);
-
-      for (let firstIndex = 0; firstIndex < particles.length; firstIndex += 1) {
-        const firstParticle = particles[firstIndex];
-
-        for (let secondIndex = firstIndex + 1; secondIndex < particles.length; secondIndex += 1) {
-          const secondParticle = particles[secondIndex];
-          const distance = Math.hypot(firstParticle.x - secondParticle.x, firstParticle.y - secondParticle.y);
-
-          if (distance < connectionDistance) {
-            context.beginPath();
-            context.moveTo(firstParticle.x, firstParticle.y);
-            context.lineTo(secondParticle.x, secondParticle.y);
-            context.strokeStyle = `rgba(255, 107, 0, ${(1 - distance / connectionDistance) * 0.28})`;
-            context.lineWidth = 0.9;
-            context.stroke();
-          }
-        }
-      }
-
-      particles.forEach((particle) => {
-        context.beginPath();
-        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        context.fillStyle = particleColor;
-        context.globalAlpha = 0.65;
-        context.fill();
-      });
-
-      context.globalAlpha = 1;
-      animationFrame = requestAnimationFrame(drawParticles);
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-    window.addEventListener('mousemove', (event) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
-      mouse.active = true;
-    });
-    window.addEventListener('mouseout', (event) => {
-      if (!event.relatedTarget) mouse.active = false;
-    });
-
     const questionnaire = document.getElementById('marketing-questionnaire');
     const resultPanel = document.getElementById('questionnaire-result');
     const resultScore = document.getElementById('result-score');
@@ -351,8 +245,6 @@
       resultPanel.classList.add('is-complete');
     });
 
-    resizeCanvas();
-    drawParticles();
   </script>
 
 </body>
