@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Richedel Digital | High-Performance Web Design</title>
+  <meta name="theme-color" content="#eeece5">
+  <meta name="description" content="Richedel Digital builds fast, handcrafted websites for ambitious local businesses.">
+  <title>Richedel Digital | Handcrafted Web Experiences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -26,9 +32,9 @@
   <main>
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge">Available for New Projects</div>
-      <h1>Websites built for speed, brand impact, and conversions.</h1>
-      <p>We ditch the heavy, bloated frameworks to build lightning-fast, minimalist websites engineered to turn local browsers into lifelong clients.</p>
+      <div class="hero-badge"><span class="badge-dot" aria-hidden="true"></span> Available for New Projects</div>
+      <h1>Websites built for speed, brand impact, and conver&shy;sions.</h1>
+      <p>We ditch heavy, bloated page builders to handcraft lightning-fast, bespoke websites engineered to turn local browsers into high-value clients.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Start Your Project</a>
         <a href="#work" class="btn btn-secondary">View Our Work</a>
@@ -55,21 +61,21 @@
     <section id="services" class="section">
       <div class="section-header">
         <h2>Expertise Built For Growth</h2>
-        <p>Everything your business needs to dominate its digital presence.</p>
+        <p>Everything your business needs to establish a confident online presence.</p>
       </div>
       <div class="card-grid">
         <div class="card">
-          <div class="card-icon">⚡</div>
+          <div class="card-icon" aria-hidden="true">⚡</div>
           <h3>Ultra-Fast Performance</h3>
           <p>Built with clean HTML and CSS. No heavy plugins or slow page builders holding your system or SEO back.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🎨</div>
+          <div class="card-icon" aria-hidden="true">✳</div>
           <h3>Bespoke UI Design</h3>
           <p>Tailored layouts that reflect your unique brand identity and build instant trust with your target audience.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📈</div>
+          <div class="card-icon" aria-hidden="true">↗</div>
           <h3>Conversion Architecture</h3>
           <p>Strategic information flow designed to guide visitors smoothly toward making an inquiry or purchase.</p>
         </div>
@@ -79,26 +85,26 @@
     <!-- Portfolio / Work Section -->
     <section id="work" class="section bg-alt">
       <div class="section-header">
-        <h2>Selected Projects</h2>
-        <p>A glimpse into our high-impact digital craftsmanship.</p>
+        <h2>Selected Works</h2>
+        <p>A snapshot of our recent client web developments.</p>
       </div>
       <div class="card-grid">
         <div class="project-card">
           <div class="project-mockup mockup-1">
-            <span>Island Bistro Landing Page</span>
+            <span class="work-tag">Hospitality</span><span class="project-name">Island<br>Bistro</span>
           </div>
           <div class="project-info">
             <h3>Culinary Experience Hub</h3>
-            <p>A clean, mobile-first interface featuring instant reservation tools and menu layouts.</p>
+            <p>A mobile-first restaurant experience with a clear menu and seamless reservation flow.</p>
           </div>
         </div>
         <div class="project-card">
           <div class="project-mockup mockup-2">
-            <span>Retail Storefront Site</span>
+            <span class="work-tag">Retail</span><span class="project-name">LOCAL<br>GOODS</span>
           </div>
           <div class="project-info">
             <h3>Local Retail Showcase</h3>
-            <p>An immersive digital storefront built to drive both local foot traffic and online inquiries.</p>
+            <p>A polished digital storefront designed to bring customers online and into the local shop.</p>
           </div>
         </div>
       </div>
@@ -107,24 +113,24 @@
     <!-- Process Section -->
     <section id="process" class="section">
       <div class="section-header">
-        <h2>How We Work</h2>
-        <p>A streamlined, hassle-free path from concept to launch.</p>
+        <h2>How We Build</h2>
+        <p>A transparent, structured approach from first conversation to launch.</p>
       </div>
       <div class="process-steps">
         <div class="step">
           <span>01</span>
           <h3>Strategy</h3>
-          <p>We analyze your business goals, target audience, and local competitors.</p>
+          <p>We learn your goals, audience, brand, and what makes your business different.</p>
         </div>
         <div class="step">
           <span>02</span>
-          <h3>Design & Code</h3>
-          <p>We craft lightweight, hand-coded interfaces optimized for all devices.</p>
+          <h3>Craft &amp; Code</h3>
+          <p>We design and hand-code a lightweight experience tailored to your business and every screen size.</p>
         </div>
         <div class="step">
           <span>03</span>
-          <h3>Launch</h3>
-          <p>Your site goes live instantly, ready to bring in high-value local clients.</p>
+          <h3>Deploy</h3>
+          <p>Your site goes live, ready to make a strong first impression and bring in new inquiries.</p>
         </div>
       </div>
     </section>
@@ -133,59 +139,52 @@
     <section id="marketing-check" class="section marketing-check-section">
       <div class="section-header">
         <span class="section-kicker">A quick reality check</span>
-        <h2>Are people finding you often enough?</h2>
-        <p>Answer five honest questions to see where your growth engine may need more attention.</p>
+          <h2>Is your website working hard enough?</h2>
+          <p>Answer five honest questions to see where your online growth engine may need attention.</p>
       </div>
       <div class="questionnaire-layout">
-        <form class="questionnaire" id="marketing-questionnaire">
+        <form class="questionnaire" id="website-check">
           <fieldset class="question-block">
-            <legend>01. How often are you actively reaching out to potential customers?</legend>
-            <label><input type="radio" name="outreach" value="3" required> Every week</label>
-            <label><input type="radio" name="outreach" value="2"> A few times a month</label>
-            <label><input type="radio" name="outreach" value="1"> Only when business is slow</label>
-            <label><input type="radio" name="outreach" value="0"> Almost never</label>
+            <legend>01. How fast does your current site load on mobile?</legend>
+            <label><input type="radio" name="speed" value="3" required> Instantly, in under a second</label>
+            <label><input type="radio" name="speed" value="2"> There is a noticeable delay</label>
+            <label><input type="radio" name="speed" value="1"> It feels slow, or I haven't tested it</label>
           </fieldset>
 
           <fieldset class="question-block">
-            <legend>02. How consistently are you advertising or promoting your business?</legend>
-            <label><input type="radio" name="advertising" value="3" required> We have a steady plan and budget</label>
-            <label><input type="radio" name="advertising" value="2"> We promote when we have time</label>
-            <label><input type="radio" name="advertising" value="1"> We have tried a few one-off ads</label>
-            <label><input type="radio" name="advertising" value="0"> We are not advertising right now</label>
+            <legend>02. Can customers easily book or inquire on any screen?</legend>
+            <label><input type="radio" name="booking" value="3" required> Yes, the process is clear and simple</label>
+            <label><input type="radio" name="booking" value="2"> They can, but it takes some effort</label>
+            <label><input type="radio" name="booking" value="1"> They have to phone or email directly</label>
           </fieldset>
 
           <fieldset class="question-block">
-            <legend>03. Can a new customer quickly understand why to choose you?</legend>
-            <label><input type="radio" name="positioning" value="3" required> Yes, it is clear everywhere we show up</label>
-            <label><input type="radio" name="positioning" value="2"> Mostly, but our message varies</label>
-            <label><input type="radio" name="positioning" value="1"> We explain it differently each time</label>
-            <label><input type="radio" name="positioning" value="0"> We have not defined it yet</label>
+            <legend>03. Does your website stand out from local competitors?</legend>
+            <label><input type="radio" name="design" value="3" required> Yes, it feels distinctive and premium</label>
+            <label><input type="radio" name="design" value="2"> It is about on par with others</label>
+            <label><input type="radio" name="design" value="1"> It feels dated or template-based</label>
           </fieldset>
 
           <fieldset class="question-block">
-            <legend>04. Do you know which marketing efforts bring you leads?</legend>
-            <label><input type="radio" name="tracking" value="3" required> Yes, we track them regularly</label>
-            <label><input type="radio" name="tracking" value="2"> We have a general idea</label>
-            <label><input type="radio" name="tracking" value="1"> We mostly rely on gut feeling</label>
-            <label><input type="radio" name="tracking" value="0"> We are not tracking anything</label>
+            <legend>04. How often do you update content and check performance?</legend>
+            <label><input type="radio" name="maintenance" value="3" required> We keep it current and optimized</label>
+            <label><input type="radio" name="maintenance" value="2"> Occasionally, when something needs attention</label>
+            <label><input type="radio" name="maintenance" value="1"> Rarely; it was built and forgotten</label>
           </fieldset>
 
           <fieldset class="question-block">
-            <legend>05. How quickly do you follow up when someone shows interest?</legend>
-            <label><input type="radio" name="followup" value="3" required> The same day, with a clear next step</label>
-            <label><input type="radio" name="followup" value="2"> Within a few days</label>
-            <label><input type="radio" name="followup" value="1"> When we get a chance</label>
-            <label><input type="radio" name="followup" value="0"> We do not have a follow-up process</label>
+            <legend>05. Does your site turn visits into measurable leads?</legend>
+            <label><input type="radio" name="leads" value="3" required> Yes, it consistently brings in inquiries</label>
+            <label><input type="radio" name="leads" value="2"> Sometimes, but it is hard to track</label>
+            <label><input type="radio" name="leads" value="1"> It rarely generates new leads</label>
           </fieldset>
-
-          <button type="submit" class="btn btn-primary btn-full">See My Marketing Check</button>
         </form>
 
-        <aside class="questionnaire-result" id="questionnaire-result" aria-live="polite">
-          <span class="result-label">Your result</span>
+        <aside class="questionnaire-result" id="questionnaire-result" aria-live="polite" aria-atomic="true">
+          <span class="result-label">Your website score</span>
           <div class="result-score"><strong id="result-score">--</strong><span>/ 15</span></div>
-          <h3 id="result-title">Where is your growth engine today?</h3>
-          <p id="result-message">Complete the questions for a clear starting point and one practical next move.</p>
+          <h3 id="result-title">Where is your engine today?</h3>
+          <p id="result-message">Choose an answer for all five questions to unlock your assessment and next steps.</p>
         </aside>
       </div>
     </section>
@@ -193,19 +192,23 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
       <div class="contact-box">
-        <h2>Let's build something great together.</h2>
-        <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+        <span class="section-kicker">Have a project in mind?</span>
+        <h2>Let's build something extra&shy;ordinary.</h2>
+        <p>Tell us what you're working on. We'll get back to you within 24 hours.</p>
         <form class="contact-form" action="https://formspree.io/f/xbgloyrl" method="POST">
           <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
+            <label class="visually-hidden" for="contact-name">Your name</label>
+            <input id="contact-name" type="text" name="name" placeholder="Your name" autocomplete="name" required>
           </div>
           <div class="form-group">
-            <input type="email" name="email" placeholder="Email Address" required>
+            <label class="visually-hidden" for="contact-email">Your email address</label>
+            <input id="contact-email" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
           </div>
           <div class="form-group">
-            <textarea name="message" placeholder="Tell us about your project..." rows="4" required></textarea>
+            <label class="visually-hidden" for="contact-message">Tell us about your project</label>
+            <textarea id="contact-message" name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <button type="submit" class="btn btn-primary">Send Message <span aria-hidden="true">↗</span></button>
         </form>
       </div>
     </section>
@@ -216,36 +219,6 @@
     <p>&copy; 2026 Richedel Digital. All rights reserved.</p>
   </footer>
 
-  <script>
-    const questionnaire = document.getElementById('marketing-questionnaire');
-    const resultPanel = document.getElementById('questionnaire-result');
-    const resultScore = document.getElementById('result-score');
-    const resultTitle = document.getElementById('result-title');
-    const resultMessage = document.getElementById('result-message');
-
-    questionnaire.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const answers = new FormData(questionnaire);
-      const score = ['outreach', 'advertising', 'positioning', 'tracking', 'followup']
-        .reduce((total, question) => total + Number(answers.get(question)), 0);
-      let title = 'You have a solid foundation.';
-      let message = 'Your next opportunity is consistency: keep showing up, measure what works, and make your website the clearest path to getting in touch.';
-
-      if (score < 6) {
-        title = 'Your visibility has room to grow.';
-        message = 'Start with a simple weekly outreach rhythm and a clear offer. A focused website can help every interaction turn into a better first impression.';
-      } else if (score < 11) {
-        title = 'You are moving, but there are gaps.';
-        message = 'You have momentum. Tighten your message, choose one channel to commit to, and track where your best inquiries are coming from.';
-      }
-
-      resultScore.textContent = score;
-      resultTitle.textContent = title;
-      resultMessage.textContent = message;
-      resultPanel.classList.add('is-complete');
-    });
-
-  </script>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8288049570455149"
      crossorigin="anonymous"></script>
 </body>
