@@ -59,3 +59,52 @@ questionnaire.addEventListener('change', () => {
   resultMessage.textContent = message;
   resultPanel.classList.add('is-complete');
 });
+
+const musicControl = document.getElementById('music-control');
+const musicControlLabel = document.getElementById('music-control-label');
+const backgroundMusic = new Audio('Flint%20-%20Hymn%20of%20the%20Bed.mp3');
+backgroundMusic.loop = true;
+backgroundMusic.preload = 'none';
+backgroundMusic.volume = 0.24;
+let musicIsPlaying = false;
+let userHasChosenMusic = false;
+
+function updateMusicControl(isPlaying, label = isPlaying ? 'Pause music' : 'Play music') {
+  musicIsPlaying = isPlaying;
+  musicControl.setAttribute('aria-pressed', String(isPlaying));
+  musicControl.setAttribute('aria-label', label === 'Play music' ? 'Play background music' : label);
+  musicControlLabel.textContent = label;
+}
+
+async function startMusic() {
+  if (musicIsPlaying) {
+    return;
+  }
+
+  try {
+    await backgroundMusic.play();
+    updateMusicControl(true);
+  } catch {
+    updateMusicControl(false, 'Tap to enable music');
+  }
+}
+
+function stopMusic() {
+  backgroundMusic.pause();
+  updateMusicControl(false);
+}
+
+musicControl.addEventListener('click', () => {
+  userHasChosenMusic = true;
+  if (musicIsPlaying) {
+    stopMusic();
+  } else {
+    startMusic();
+  }
+});
+
+window.addEventListener('scroll', () => {
+  if (!userHasChosenMusic) {
+    startMusic();
+  }
+}, { once: true, passive: true });

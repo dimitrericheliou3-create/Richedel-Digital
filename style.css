@@ -1,6 +1,6 @@
 :root {
-  --paper: #eeece5;
-  --surface: #fbfaf6;
+  --paper: #cfd4cb;
+  --surface: #f0efe9;
   --ink: #171c19;
   --muted: #59625c;
   --line: rgba(23, 28, 25, 0.14);
@@ -25,7 +25,9 @@ html {
 
 body {
   overflow-x: hidden;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: linear-gradient(rgba(49, 94, 80, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(49, 94, 80, 0.045) 1px, transparent 1px);
+  background-size: 36px 36px;
   color: var(--ink);
   font-family: var(--body);
   line-height: 1.65;
@@ -379,7 +381,9 @@ a {
 .bg-alt {
   max-width: none;
   padding: 76px max(24px, calc((100% - 1152px) / 2));
-  background-color: #e5e8e0;
+  background-color: #bdc8bd;
+  background-image: linear-gradient(rgba(23, 28, 25, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 28, 25, 0.035) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
 .bg-alt .section-header,
@@ -670,6 +674,42 @@ a {
   border: 0;
 }
 
+.music-control {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: var(--ink);
+  box-shadow: var(--shadow);
+  color: var(--surface);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.music-control:hover {
+  transform: translateY(-2px);
+  background: var(--green);
+}
+
+.music-control-icon {
+  color: var(--coral);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.music-control[aria-pressed="true"] .music-control-icon {
+  color: var(--gold);
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -867,6 +907,11 @@ footer {
 
   .contact-section {
     padding: 54px 18px;
+  }
+
+  .music-control {
+    right: 12px;
+    bottom: 12px;
   }
 }
 
