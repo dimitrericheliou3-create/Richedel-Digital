@@ -9,10 +9,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('site-intro-pending', 'site-intro-sequencing');
+        window.setTimeout(() => document.documentElement.classList.remove('site-intro-pending', 'site-intro-sequencing'), 3800);
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="site-intro" aria-hidden="true"><span>Richedel Digital</span></div>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <!-- Header / Navigation -->

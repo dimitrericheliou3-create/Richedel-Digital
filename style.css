@@ -45,6 +45,57 @@ body {
   line-height: 1.65;
 }
 
+.site-intro {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #050706;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 760ms cubic-bezier(.76, 0, .24, 1), visibility 760ms;
+}
+
+.site-intro span {
+  padding: 0 24px;
+  color: transparent;
+  background: linear-gradient(105deg, #7c817b 0%, #aeb2aa 34%, #fffdf3 48%, #c4a35b 53%, #e9e6d8 58%, #8b9089 76%);
+  background-size: 260% 100%;
+  background-position: 100% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-family: var(--heading);
+  font-size: clamp(1.8rem, 5.4vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: -.055em;
+  line-height: 1.12;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: intro-wordmark 1.8s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.site-intro-pending .site-intro {
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-intro-pending body {
+  overflow: hidden;
+}
+
+.site-intro-sequencing body .hero,
+.site-intro-sequencing body .hero::before,
+.site-intro-sequencing body .hero::after,
+.site-intro-sequencing body .badge-dot,
+.site-intro-sequencing body .hero-highlight {
+  animation-play-state: paused;
+}
+
 button,
 input,
 textarea {
@@ -1067,6 +1118,13 @@ footer {
   }
 }
 
+@keyframes intro-wordmark {
+  0% { opacity: 0; transform: translateY(8px); background-position: 100% 50%; }
+  18% { opacity: 1; transform: translateY(0); }
+  78% { opacity: 1; background-position: 0% 50%; }
+  100% { opacity: 0; background-position: -40% 50%; }
+}
+
 @keyframes law-book-arrive {
   from {
     opacity: 0;
@@ -1295,6 +1353,8 @@ footer {
   .hero::before, .hero::after { animation: none; }
   .hero-highlight { animation: none; background-position: 50% 50%; }
   .privacy-transition,
+  .site-intro,
+  .site-intro span,
   .law-book,
   .law-book-pages,
   .book-cover-panel,

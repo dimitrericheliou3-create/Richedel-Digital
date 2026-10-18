@@ -1,3 +1,14 @@
+const hasSiteIntro = document.documentElement.classList.contains('site-intro-pending');
+const afterSiteIntro = (callback) => {
+  if (hasSiteIntro) window.setTimeout(callback, 2660);
+  else callback();
+};
+
+if (hasSiteIntro) {
+  window.setTimeout(() => document.documentElement.classList.remove('site-intro-pending'), 1900);
+  window.setTimeout(() => document.documentElement.classList.remove('site-intro-sequencing'), 2660);
+}
+
 const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
 const navigableSections = sectionLinks
   .map((link) => document.querySelector(link.getAttribute('href')))
@@ -71,7 +82,7 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
     observer.unobserve(element);
   });
 }, { threshold: 0.75 });
-metricCounters.forEach((counter) => counterObserver.observe(counter));
+afterSiteIntro(() => metricCounters.forEach((counter) => counterObserver.observe(counter)));
 
 const revealItems = document.querySelectorAll('.section-header, .card, .project-card, .step, .questionnaire-result, .contact-box');
 revealItems.forEach((item) => item.classList.add('reveal-on-scroll'));
@@ -83,7 +94,7 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
     }
   });
 }, { threshold: 0.12 });
-revealItems.forEach((item) => revealObserver.observe(item));
+afterSiteIntro(() => revealItems.forEach((item) => revealObserver.observe(item)));
 
 document.querySelectorAll('[data-tilt]').forEach((card) => {
   card.addEventListener('pointermove', (event) => {
