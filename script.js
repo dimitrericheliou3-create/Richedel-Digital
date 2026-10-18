@@ -189,3 +189,51 @@ musicControl.addEventListener('click', () => {
   }
 });
 
+const privacyPolicyLink = document.querySelector('a[href="privacy.html"]');
+if (privacyPolicyLink) {
+  privacyPolicyLink.addEventListener('click', (event) => {
+    const isPlainClick = event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!isPlainClick || prefersReducedMotion || event.defaultPrevented) return;
+
+    event.preventDefault();
+    const transition = document.createElement('div');
+    transition.className = 'privacy-transition';
+    transition.setAttribute('aria-hidden', 'true');
+    transition.innerHTML = `
+      <div class="law-book">
+        <div class="law-book-pages">
+          <div class="law-book-page">
+            <strong>CHAPTER I</strong>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae justo sed neque porta consequat.</p>
+            <p>Curabitur at lacus ac velit ornare lobortis. Donec pede justo, fringilla vel, aliquet nec, vulputate eget.</p>
+            <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+          </div>
+          <div class="law-book-page">
+            <strong>YOUR PRIVACY</strong>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis.</p>
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna.</p>
+            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+            <small class="book-note">get a life bum</small>
+          </div>
+        </div>
+        <div class="book-cover-panel book-cover-left"></div>
+        <div class="book-cover-panel book-cover-right"></div>
+        <div class="law-book-cover-title">
+          <span class="law-book-seal">§</span>
+          <strong>PRIVACY<br>POLICY</strong>
+          <small>RICHEDEL DIGITAL · OFFICIAL EDITION</small>
+        </div>
+      </div>`;
+    document.body.append(transition);
+    requestAnimationFrame(() => transition.classList.add('is-active'));
+
+    window.setTimeout(() => {
+      const destination = new URL(privacyPolicyLink.href);
+      destination.searchParams.set('transition', 'lawbook');
+      window.location.assign(destination.href);
+    }, 2840);
+  });
+}
+
+
