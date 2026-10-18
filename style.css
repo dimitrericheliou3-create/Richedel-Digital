@@ -60,7 +60,7 @@ body {
 }
 
 .site-intro span {
-  padding: 0 24px;
+  padding: .12em 24px .2em;
   color: transparent;
   background: linear-gradient(105deg, #7c817b 0%, #aeb2aa 34%, #fffdf3 48%, #c4a35b 53%, #e9e6d8 58%, #8b9089 76%);
   background-size: 260% 100%;
@@ -71,7 +71,7 @@ body {
   font-size: clamp(1.8rem, 5.4vw, 4.4rem);
   font-weight: 700;
   letter-spacing: -.055em;
-  line-height: 1.12;
+  line-height: 1.3;
   text-align: center;
   white-space: nowrap;
   opacity: 0;
