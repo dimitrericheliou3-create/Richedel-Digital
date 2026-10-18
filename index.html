@@ -8,11 +8,12 @@
   <title>Richedel Digital | Handcrafted Web Experiences</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <!-- Header / Navigation -->
   <header class="site-header">
@@ -33,7 +34,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-badge"><span class="badge-dot" aria-hidden="true"></span> Available for New Projects</div>
-      <h1>Websites built for speed, brand impact, and conver&shy;sions.</h1>
+      <h1>Websites built for speed, brand impact, and <span class="hero-highlight">conversions.</span></h1>
       <p>We ditch heavy, bloated page builders to handcraft lightning-fast, bespoke websites engineered to turn local browsers into high-value clients.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Start Your Project</a>
@@ -44,15 +45,15 @@
     <!-- Metrics / Social Proof Bar -->
     <section class="metrics-bar">
       <div class="metric-item">
-        <h3>100%</h3>
+        <h3 data-count-value="100" data-count-suffix="%">100%</h3>
         <p>Vanilla Code Stack</p>
       </div>
       <div class="metric-item">
-        <h3>0.4s</h3>
+        <h3 data-count-value="0.4" data-count-decimals="1" data-count-suffix="s">0.4s</h3>
         <p>Average Load Speed</p>
       </div>
       <div class="metric-item">
-        <h3>3x</h3>
+        <h3 data-count-value="3" data-count-suffix="x">3x</h3>
         <p>Conversion Growth</p>
       </div>
     </section>
@@ -88,25 +89,31 @@
         <h2>Selected Works</h2>
         <p>A snapshot of our recent client web developments.</p>
       </div>
-      <div class="card-grid">
-        <div class="project-card">
-          <div class="project-mockup mockup-1">
-            <span class="work-tag">Hospitality</span><span class="project-name">Island<br>Bistro</span>
-          </div>
-          <div class="project-info">
-            <h3>Culinary Experience Hub</h3>
-            <p>A mobile-first restaurant experience with a clear menu and seamless reservation flow.</p>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-mockup mockup-2">
-            <span class="work-tag">Retail</span><span class="project-name">LOCAL<br>GOODS</span>
-          </div>
-          <div class="project-info">
-            <h3>Local Retail Showcase</h3>
-            <p>A polished digital storefront designed to bring customers online and into the local shop.</p>
-          </div>
-        </div>
+      <div class="card-grid project-grid">
+        <article class="project-card" data-tilt>
+          <a class="project-link" href="https://dimitrericheliou3-create.github.io/food-style-website/" target="_blank" rel="noopener noreferrer" aria-label="Visit Food Style website">
+            <div class="project-image image-food" role="img" aria-label="Gourmet burger with fresh ingredients"><span class="work-tag">Hospitality</span><span class="project-name">FOOD<br><em>STYLE</em></span><span class="image-arrow" aria-hidden="true">↗</span></div>
+            <div class="project-info"><span class="project-type">Restaurant / Digital storefront</span><h3>Food Style</h3><p>A bold burger and delivery website with a lively menu experience.</p><span class="project-action">Visit live site <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="project-card" data-tilt>
+          <a class="project-link" href="https://richelieureserved-ops.github.io/lhcss/" target="_blank" rel="noopener noreferrer" aria-label="Visit Leon Hess Secondary website">
+            <div class="project-image image-school" role="img" aria-label="Students walking on a school campus"><span class="work-tag">Education</span><span class="project-name">LEARN<br><em>TOGETHER</em></span><span class="image-arrow" aria-hidden="true">↗</span></div>
+            <div class="project-info"><span class="project-type">School / Community</span><h3>Leon Hess Secondary</h3><p>A digital home for a comprehensive secondary school in St. Lucia.</p><span class="project-action">Visit live site <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="project-card" data-tilt>
+          <a class="project-link" href="https://neon-copy-ai.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Visit NeonCopy AI website">
+            <div class="project-image image-neon" role="img" aria-label="Neon-lit creative studio"><span class="work-tag">AI / SaaS</span><span class="project-name">NEON<span class="neon-accent">COPY</span></span><span class="image-arrow" aria-hidden="true">↗</span></div>
+            <div class="project-info"><span class="project-type">Product / AI writing</span><h3>NeonCopy AI</h3><p>A dark, electric product experience for AI-powered copywriting.</p><span class="project-action">Visit live site <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="project-card" data-tilt>
+          <a class="project-link" href="https://the-last-time-machine.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Visit The Last Time Machine website">
+            <div class="project-image image-time" role="img" aria-label="Abstract time and knowledge visualization"><span class="work-tag">Productivity</span><span class="project-name">THE LAST<br><em>TIME MACHINE</em></span><span class="image-arrow" aria-hidden="true">↗</span></div>
+            <div class="project-info"><span class="project-type">Knowledge / Team tools</span><h3>The Last Time Machine</h3><p>A searchable home for the hard-won knowledge teams shouldn’t lose.</p><span class="project-action">Visit live site <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
       </div>
     </section>
 
@@ -193,7 +200,7 @@
     <section id="contact" class="contact-section">
       <div class="contact-box">
         <span class="section-kicker">Have a project in mind?</span>
-        <h2>Let's build something extra&shy;ordinary.</h2>
+        <h2>Let's build something extraordinary.</h2>
         <p>Tell us what you're working on. We'll get back to you within 24 hours.</p>
         <form class="contact-form" action="https://formspree.io/f/xbgloyrl" method="POST">
           <div class="form-group">
@@ -228,3 +235,4 @@
      crossorigin="anonymous"></script>
 </body>
 </html>
+
