@@ -384,7 +384,7 @@ a {
   min-width: 0;
   padding: 28px;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--surface);
   box-shadow: var(--shadow);
   transition: transform 220ms ease, border-color 220ms ease;
@@ -403,7 +403,7 @@ a {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  border-radius: 10px;
+  border-radius: 0;
   background: #e1e9e1;
   color: var(--green);
   font-size: 1.5rem;
@@ -460,7 +460,7 @@ a {
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(23, 28, 25, 0.2);
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--ink);
   color: var(--surface);
   box-shadow: var(--shadow);
@@ -520,7 +520,7 @@ a {
   top: 15px;
   left: 15px;
   padding: 5px 11px;
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--gold);
   color: var(--ink);
   font-size: 0.7rem;
@@ -597,7 +597,7 @@ a {
   min-width: 0;
   padding: 18px;
   border: 0;
-  border-radius: 14px;
+  border-radius: 0;
   background: rgba(240, 239, 233, 0.92);
   box-shadow: 0 0 0 1px rgba(23, 28, 25, 0.2), 0 8px 20px rgba(23, 28, 25, 0.055);
 }
@@ -628,7 +628,7 @@ a {
   gap: 10px;
   padding: 10px 13px;
   border: 1px solid rgba(23, 28, 25, 0.17);
-  border-radius: 9px;
+  border-radius: 0;
   background: #faf9f5;
   color: #3f4943;
   cursor: pointer;
@@ -660,7 +660,7 @@ a {
   top: 100px;
   padding: 27px 24px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--ink);
   color: var(--surface);
   box-shadow: var(--shadow);
@@ -752,7 +752,7 @@ a {
   width: 100%;
   padding: 14px 16px;
   border: 1px solid #414a43;
-  border-radius: 7px;
+  border-radius: 0;
   outline: none;
   background: #202722;
   color: var(--surface);
@@ -788,7 +788,7 @@ a {
   gap: 9px;
   padding: 10px 15px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--ink);
   box-shadow: var(--shadow);
   color: var(--surface);
@@ -904,7 +904,7 @@ footer a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
-  border-radius: 5px 9px 9px 5px;
+  border-radius: 0;
   background: #eee7d7;
   box-shadow: 0 0 0 2px rgba(215, 192, 139, .45), inset 0 0 24px rgba(71, 53, 25, .14);
   opacity: 0;
@@ -984,7 +984,7 @@ footer a {
 .book-cover-left {
   left: 0;
   border-right-color: rgba(224, 183, 91, .18);
-  border-radius: 10px 0 0 10px;
+  border-radius: 0;
   box-shadow: inset -15px 0 18px -18px #030504;
   transform-origin: right center;
   animation: law-cover-left-open 900ms 1200ms cubic-bezier(.2, .78, .2, 1) forwards;
@@ -993,7 +993,7 @@ footer a {
 .book-cover-right {
   right: 0;
   border-left-color: rgba(224, 183, 91, .18);
-  border-radius: 0 10px 10px 0;
+  border-radius: 0;
   box-shadow: inset 15px 0 18px -18px #030504;
   transform-origin: left center;
   animation: law-cover-right-open 900ms 1200ms cubic-bezier(.2, .78, .2, 1) forwards;
