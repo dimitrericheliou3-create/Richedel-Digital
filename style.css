@@ -604,7 +604,7 @@ a {
 
 .question-block legend {
   position: relative;
-  top: -4px;
+  top: 28px;
   display: block;
   width: 100%;
   max-width: 100%;
@@ -621,7 +621,7 @@ a {
 
 .question-block label {
   position: relative;
-  top: -12px;
+  top: 8px;
   display: flex;
   min-height: 46px;
   align-items: center;
