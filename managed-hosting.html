@@ -52,6 +52,13 @@
     .hosting-price-card h3 { margin: 12px 0 8px; font: 800 1.75rem var(--heading); }
     .hosting-price-card p { color: #c5cec5; font-size: .92rem; }
     .hosting-price-card .price-note { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.16); color: #e6d9b8; font-size: .84rem; }
+    .paypal-subscribe-wrap { margin-top: 22px; padding: 18px; border-radius: 12px; background: rgba(255,255,255,.08); }
+    .paypal-subscribe-label { margin-bottom: 10px; color: #f0efe9; font: 700 .88rem var(--heading); }
+    #paypal-button-container { min-height: 44px; }
+    #paypal-subscription-status { min-height: 1.5em; margin-top: 10px; color: #e6d9b8; font-size: .82rem; overflow-wrap: anywhere; }
+    #paypal-subscription-status[data-state="success"] { color: #b8e6c7; }
+    #paypal-subscription-status[data-state="error"] { color: #ffc4b8; }
+    .paypal-plan-note { margin-top: 10px; color: #c5cec5; font-size: .76rem; }
     .hosting-faq { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
     .hosting-faq article { padding: 22px; border: 1px solid var(--line); background: rgba(240,239,233,.72); }
     .hosting-faq h3 { margin-bottom: 7px; font: 800 1rem var(--heading); }
@@ -152,6 +159,12 @@
           <h3>Built around your website.</h3>
           <p>Every website has different hosting, traffic and support requirements. We will review your site and recommend a monthly scope that makes sense for it.</p>
           <p class="price-note">No made-up package price or one-size-fits-all promise. Your monthly fee and included support are confirmed with you before the subscription begins.</p>
+          <div class="paypal-subscribe-wrap">
+            <p class="paypal-subscribe-label">Ready to activate your agreed monthly plan?</p>
+            <div id="paypal-button-container" aria-label="PayPal subscription checkout"></div>
+            <p id="paypal-subscription-status" role="status" aria-live="polite">Your agreed monthly amount will be shown by PayPal before you approve the subscription.</p>
+            <p class="paypal-plan-note">Recurring billing is handled by PayPal. Review the amount and billing terms in PayPal before confirming.</p>
+          </div>
         </aside>
       </div>
     </section>
@@ -231,5 +244,65 @@
   <footer class="hosting-footer">
     <p>&copy; 2026 Richedel Digital. All rights reserved. <a href="privacy.html">Privacy Policy</a></p>
   </footer>
+
+  <!-- PayPal recurring subscription checkout. The default plan is the one supplied by Richedel Digital.
+       For a negotiated customer price, pass that customer's PayPal plan ID as ?plan=P-... -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAAocto8nvIYWcMZXq_VXW3wKNMSzrMgOOSLY5Cptr6t3mz3v84H-t1M7ksuLvgL7kEj1hBNOIZR2iTbVQ&vault=true&intent=subscription"
+    data-sdk-integration-source="button-factory">
+  </script>
+  <script>
+    (() => {
+      const DEFAULT_PLAN_ID = 'P-4BM97410RF5865728NLSRC6A';
+      const requestedPlanId = new URLSearchParams(window.location.search).get('plan');
+      const planId = requestedPlanId || DEFAULT_PLAN_ID;
+      const status = document.getElementById('paypal-subscription-status');
+      const container = '#paypal-button-container';
+
+      // PayPal plan IDs follow the P-... format. Reject malformed URL values.
+      if (!/^P-[A-Z0-9]+$/i.test(planId)) {
+        status.dataset.state = 'error';
+        status.textContent = 'This subscription link is incomplete. Please contact Richedel Digital for a new payment link.';
+        document.querySelector(container).hidden = true;
+        return;
+      }
+
+      if (!window.paypal || typeof window.paypal.Buttons !== 'function') {
+        status.dataset.state = 'error';
+        status.textContent = 'PayPal checkout could not load. Please refresh the page or contact Richedel Digital.';
+        return;
+      }
+
+      window.paypal.Buttons({
+        style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+          return actions.subscription.create({ plan_id: planId });
+        },
+        onApprove: function(data) {
+          status.dataset.state = 'success';
+          status.textContent = 'PayPal has approved your subscription. Your subscription reference is ' +
+            data.subscriptionID + '. Richedel Digital will follow up to confirm your service setup.';
+        },
+        onCancel: function() {
+          status.dataset.state = '';
+          status.textContent = 'Checkout was cancelled. No subscription was approved.';
+        },
+        onError: function(error) {
+          console.error('PayPal subscription checkout error:', error);
+          status.dataset.state = 'error';
+          status.textContent = 'PayPal could not complete the subscription. Please try again or contact Richedel Digital.';
+        }
+      }).render(container).catch(function(error) {
+        console.error('PayPal button render error:', error);
+        status.dataset.state = 'error';
+        status.textContent = 'PayPal checkout could not be displayed. Please refresh the page or contact Richedel Digital.';
+      });
+    })();
+  </script>
 </body>
 </html>
