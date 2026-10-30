@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#cfd4cb">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Managed website hosting, maintenance, support and security from Richedel Digital.">
+  <title>Managed Website Hosting &amp; Care | Richedel Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hosting-header { padding-top: 12px; }
+    .hosting-nav { max-width: 1200px; margin: 0 auto; padding: 12px 22px; display: flex; align-items: center; justify-content: space-between; gap: 18px; border: 1px solid var(--line); border-radius: 999px; background: rgba(251,250,246,.92); box-shadow: var(--shadow); backdrop-filter: blur(14px); }
+    .hosting-brand { font: 800 1.18rem var(--heading); text-decoration: none; }
+    .hosting-brand span { color: var(--coral); }
+    .hosting-nav-note { color: var(--muted); font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .hosting-hero { position: relative; isolation: isolate; max-width: 1200px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) 24px 78px; text-align: center; }
+    .hosting-hero::before, .hosting-hero::after { position: absolute; z-index: -1; width: clamp(170px, 24vw, 290px); aspect-ratio: 1; border: 1px solid rgba(49,94,80,.2); border-radius: 50%; content: ""; pointer-events: none; }
+    .hosting-hero::before { top: 16%; right: 4%; }
+    .hosting-hero::after { bottom: 7%; left: 5%; width: clamp(130px, 18vw, 220px); }
+    .hosting-eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 22px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(240,239,233,.78); color: var(--green); font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .hosting-eyebrow::before { width: 7px; height: 7px; border-radius: 50%; background: var(--coral); content: ""; }
+    .hosting-hero h1 { max-width: 900px; margin: 0 auto; font: 800 clamp(2.7rem, 7vw, 5.4rem)/1.03 var(--heading); letter-spacing: -.065em; text-wrap: balance; }
+    .hosting-hero h1 em { color: var(--green); font-style: normal; }
+    .hosting-hero > p { max-width: 690px; margin: 22px auto 0; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.14rem); }
+    .hosting-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+    .hosting-proof { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px; margin-top: 38px; color: var(--muted); font-size: .83rem; font-weight: 600; }
+    .hosting-proof span::before { margin-right: 8px; color: var(--coral); content: "✓"; font-weight: 800; }
+    .hosting-section { padding: 76px 24px; }
+    .hosting-section.alt { background: #bdc8bd; background-image: linear-gradient(rgba(23,28,25,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(23,28,25,.06) 1px, transparent 1px); background-size: 36px 36px; }
+    .hosting-inner { max-width: 1152px; margin: 0 auto; }
+    .hosting-heading { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+    .hosting-kicker { display: block; margin-bottom: 10px; color: var(--coral); font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .hosting-heading h2 { font: 800 clamp(2rem, 4vw, 2.7rem)/1.12 var(--heading); letter-spacing: -.045em; text-wrap: balance; }
+    .hosting-heading p { margin-top: 12px; color: var(--muted); }
+    .hosting-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+    .hosting-card { min-width: 0; padding: 25px 22px; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+    .hosting-icon { display: grid; width: 44px; height: 44px; margin-bottom: 20px; place-items: center; border-radius: 50%; background: #e4e7de; color: var(--green); font-size: 1.2rem; }
+    .hosting-card h3 { margin-bottom: 8px; font: 800 1.08rem var(--heading); }
+    .hosting-card p { color: var(--muted); font-size: .92rem; }
+    .hosting-plan { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(280px,.9fr); gap: 28px; align-items: center; }
+    .hosting-plan-copy h2 { max-width: 650px; margin-bottom: 14px; font: 800 clamp(2rem,4vw,2.8rem)/1.1 var(--heading); letter-spacing: -.045em; }
+    .hosting-plan-copy > p { max-width: 650px; color: var(--muted); }
+    .hosting-checklist { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 20px; margin-top: 26px; list-style: none; }
+    .hosting-checklist li { display: flex; gap: 10px; align-items: flex-start; font-size: .93rem; font-weight: 600; }
+    .hosting-checklist li::before { color: var(--coral); content: "✓"; font-weight: 800; }
+    .hosting-price-card { padding: 30px; border: 1px solid rgba(224,183,91,.45); background: linear-gradient(145deg,#182c25,#0f1b17); color: #f0efe9; box-shadow: 0 22px 52px rgba(16,20,17,.18); }
+    .hosting-price-card .small-label { color: #d8c58f; font-size: .73rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .hosting-price-card h3 { margin: 12px 0 8px; font: 800 1.75rem var(--heading); }
+    .hosting-price-card p { color: #c5cec5; font-size: .92rem; }
+    .hosting-price-card .price-note { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.16); color: #e6d9b8; font-size: .84rem; }
+    .hosting-faq { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .hosting-faq article { padding: 22px; border: 1px solid var(--line); background: rgba(240,239,233,.72); }
+    .hosting-faq h3 { margin-bottom: 7px; font: 800 1rem var(--heading); }
+    .hosting-faq p { color: var(--muted); font-size: .92rem; }
+    .hosting-contact { padding: 76px 24px; }
+    .hosting-contact-box { max-width: 900px; margin: 0 auto; padding: clamp(26px,5vw,52px); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+    .hosting-contact-box h2 { font: 800 clamp(2rem,4vw,2.7rem)/1.1 var(--heading); letter-spacing: -.045em; }
+    .hosting-contact-box > p { max-width: 650px; margin: 12px 0 26px; color: var(--muted); }
+    .hosting-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .hosting-field { display: grid; gap: 6px; }
+    .hosting-field.full { grid-column: 1 / -1; }
+    .hosting-field label { font-size: .82rem; font-weight: 700; }
+    .hosting-field input, .hosting-field select, .hosting-field textarea { width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 0; background: #fffefa; color: var(--ink); }
+    .hosting-field textarea { min-height: 116px; resize: vertical; }
+    .hosting-form button { justify-self: start; }
+    .hosting-smallprint { margin-top: 14px; color: var(--muted); font-size: .78rem; }
+    .hosting-footer { padding: 24px 20px; border-top: 1px solid rgba(255,255,255,.12); background: var(--ink); color: #aeb5ad; font-size: .84rem; text-align: center; }
+    .hosting-footer a { color: #e6d9b8; }
+    @media (max-width: 900px) { .hosting-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .hosting-plan { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .hosting-header { padding: 8px 12px 0; } .hosting-nav { padding: 11px 14px; border-radius: 16px; } .hosting-nav-note { font-size: .68rem; text-align: right; } .hosting-hero { padding: 58px 18px 58px; } .hosting-hero h1 { font-size: clamp(2.55rem,12vw,3.7rem); } .hosting-hero::before { right: -12%; } .hosting-hero::after { left: -10%; } .hosting-section, .hosting-contact { padding: 58px 18px; } .hosting-grid, .hosting-faq, .hosting-checklist, .hosting-form { grid-template-columns: 1fr; } .hosting-field.full { grid-column: auto; } .hosting-form button { width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header class="hosting-header">
+    <nav class="hosting-nav" aria-label="Page navigation">
+      <a class="hosting-brand" href="index.html">Richedel Digital<span>.</span></a>
+      <span class="hosting-nav-note">Managed website care</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hosting-hero">
+      <span class="hosting-eyebrow">A website that stays looked after</span>
+      <h1>More than hosting.<br><em>Peace of mind, monthly.</em></h1>
+      <p>Keep your business website online, cared for and ready for customers. Richedel Digital's website-care subscription brings hosting, ongoing maintenance, practical support and security upkeep together in one service.</p>
+      <div class="hosting-actions">
+        <a class="btn btn-primary" href="#request">Ask about a hosting plan <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-secondary" href="#included">See what's included</a>
+      </div>
+      <div class="hosting-proof" aria-label="Service highlights">
+        <span>Managed hosting</span>
+        <span>Ongoing maintenance</span>
+        <span>Responsive support</span>
+        <span>Security-minded upkeep</span>
+      </div>
+    </section>
+
+    <section class="hosting-section alt" id="included">
+      <div class="hosting-inner">
+        <div class="hosting-heading">
+          <span class="hosting-kicker">One monthly service</span>
+          <h2>The essentials, taken care of.</h2>
+          <p>Instead of managing several website-related tasks yourself, you have one point of contact for the core upkeep of your site.</p>
+        </div>
+        <div class="hosting-grid">
+          <article class="hosting-card">
+            <div class="hosting-icon" aria-hidden="true">⌂</div>
+            <h3>Website hosting</h3>
+            <p>Hosting setup and ongoing hosting for your website, with help connecting your domain and keeping the site accessible.</p>
+          </article>
+          <article class="hosting-card">
+            <div class="hosting-icon" aria-hidden="true">⟳</div>
+            <h3>Maintenance</h3>
+            <p>Routine site checks, upkeep and agreed updates to help keep pages, links and key website features working properly.</p>
+          </article>
+          <article class="hosting-card">
+            <div class="hosting-icon" aria-hidden="true">✳</div>
+            <h3>Support</h3>
+            <p>A direct place to turn when you have a website question, spot an issue or need help with an agreed change.</p>
+          </article>
+          <article class="hosting-card">
+            <div class="hosting-icon" aria-hidden="true">◇</div>
+            <h3>Security</h3>
+            <p>Security-conscious configuration, HTTPS/SSL checks and ongoing attention to updates and common website risks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="hosting-section">
+      <div class="hosting-inner hosting-plan">
+        <div class="hosting-plan-copy">
+          <span class="hosting-kicker">A practical monthly partnership</span>
+          <h2>Your website is not a one-time task. It needs ongoing care.</h2>
+          <p>Websites need attention after launch too. This subscription is designed to give business owners a dependable point of contact for the day-to-day essentials, so small issues can be addressed before they become bigger distractions.</p>
+          <ul class="hosting-checklist">
+            <li>Hosting and domain connection guidance</li>
+            <li>Routine website health checks</li>
+            <li>Maintenance and agreed minor fixes</li>
+            <li>Help with website-related questions</li>
+            <li>HTTPS/SSL configuration checks</li>
+            <li>Security and update upkeep</li>
+          </ul>
+        </div>
+        <aside class="hosting-price-card">
+          <span class="small-label">Monthly subscription</span>
+          <h3>Built around your website.</h3>
+          <p>Every website has different hosting, traffic and support requirements. We will review your site and recommend a monthly scope that makes sense for it.</p>
+          <p class="price-note">No made-up package price or one-size-fits-all promise. Your monthly fee and included support are confirmed with you before the subscription begins.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="hosting-section alt">
+      <div class="hosting-inner">
+        <div class="hosting-heading">
+          <span class="hosting-kicker">Good to know</span>
+          <h2>Clear expectations from the start.</h2>
+        </div>
+        <div class="hosting-faq">
+          <article>
+            <h3>Can you look after a website you did not build?</h3>
+            <p>Yes, subject to a review of the website, its platform and the access available. Some sites may need preliminary repairs before ongoing care can begin.</p>
+          </article>
+          <article>
+            <h3>Is every change included?</h3>
+            <p>The subscription covers the maintenance and support agreed for your site. Larger redesigns, new features and substantial content work can be quoted separately.</p>
+          </article>
+          <article>
+            <h3>Is security guaranteed?</h3>
+            <p>No website service can promise that a site will never be attacked or experience downtime. The service focuses on sensible security upkeep, checks and practical help when an issue arises.</p>
+          </article>
+          <article>
+            <h3>When does the subscription start?</h3>
+            <p>After we review your website, agree the monthly fee and scope, and confirm the start date with you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="hosting-contact" id="request">
+      <div class="hosting-contact-box">
+        <span class="hosting-kicker">Get a tailored monthly quote</span>
+        <h2>Let's keep your website in good shape.</h2>
+        <p>Tell us a little about your website. We'll review what it needs and get back to you about a suitable hosting and care subscription.</p>
+        <form class="hosting-form" action="https://formspree.io/f/xbgloyrl" method="POST">
+          <input type="hidden" name="_subject" value="Website Hosting & Care Subscription Enquiry">
+          <div class="hosting-field">
+            <label for="hosting-name">Your name</label>
+            <input id="hosting-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="hosting-field">
+            <label for="hosting-email">Email address</label>
+            <input id="hosting-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="hosting-field">
+            <label for="hosting-business">Business name</label>
+            <input id="hosting-business" name="business" type="text" autocomplete="organization">
+          </div>
+          <div class="hosting-field">
+            <label for="hosting-url">Website address</label>
+            <input id="hosting-url" name="website" type="url" placeholder="https://example.com">
+          </div>
+          <div class="hosting-field full">
+            <label for="hosting-needs">What would you like help with?</label>
+            <select id="hosting-needs" name="main_need">
+              <option value="Hosting, maintenance, support and security">The full hosting and care subscription</option>
+              <option value="Hosting">Hosting</option>
+              <option value="Maintenance and updates">Maintenance and updates</option>
+              <option value="Support">Website support</option>
+              <option value="Security">Security and upkeep</option>
+              <option value="Not sure yet">Not sure yet — please advise</option>
+            </select>
+          </div>
+          <div class="hosting-field full">
+            <label for="hosting-message">Anything else we should know?</label>
+            <textarea id="hosting-message" name="message" placeholder="Tell us about your website or any current issues..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Request a monthly quote <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="hosting-smallprint">Submitting this form is an enquiry only. It does not start a subscription or create a payment obligation.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="hosting-footer">
+    <p>&copy; 2026 Richedel Digital. All rights reserved. <a href="privacy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
