@@ -63,22 +63,10 @@
     .hosting-faq article { padding: 22px; border: 1px solid var(--line); background: rgba(240,239,233,.72); }
     .hosting-faq h3 { margin-bottom: 7px; font: 800 1rem var(--heading); }
     .hosting-faq p { color: var(--muted); font-size: .92rem; }
-    .hosting-contact { padding: 76px 24px; }
-    .hosting-contact-box { max-width: 900px; margin: 0 auto; padding: clamp(26px,5vw,52px); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
-    .hosting-contact-box h2 { font: 800 clamp(2rem,4vw,2.7rem)/1.1 var(--heading); letter-spacing: -.045em; }
-    .hosting-contact-box > p { max-width: 650px; margin: 12px 0 26px; color: var(--muted); }
-    .hosting-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
-    .hosting-field { display: grid; gap: 6px; }
-    .hosting-field.full { grid-column: 1 / -1; }
-    .hosting-field label { font-size: .82rem; font-weight: 700; }
-    .hosting-field input, .hosting-field select, .hosting-field textarea { width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 0; background: #fffefa; color: var(--ink); }
-    .hosting-field textarea { min-height: 116px; resize: vertical; }
-    .hosting-form button { justify-self: start; }
-    .hosting-smallprint { margin-top: 14px; color: var(--muted); font-size: .78rem; }
     .hosting-footer { padding: 24px 20px; border-top: 1px solid rgba(255,255,255,.12); background: var(--ink); color: #aeb5ad; font-size: .84rem; text-align: center; }
     .hosting-footer a { color: #e6d9b8; }
     @media (max-width: 900px) { .hosting-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .hosting-plan { grid-template-columns: 1fr; } }
-    @media (max-width: 600px) { .hosting-header { padding: 8px 12px 0; } .hosting-nav { padding: 11px 14px; border-radius: 16px; } .hosting-nav-note { font-size: .68rem; text-align: right; } .hosting-hero { padding: 58px 18px 58px; } .hosting-hero h1 { font-size: clamp(2.55rem,12vw,3.7rem); } .hosting-hero::before { right: -12%; } .hosting-hero::after { left: -10%; } .hosting-section, .hosting-contact { padding: 58px 18px; } .hosting-grid, .hosting-faq, .hosting-checklist, .hosting-form { grid-template-columns: 1fr; } .hosting-field.full { grid-column: auto; } .hosting-form button { width: 100%; } }
+    @media (max-width: 600px) { .hosting-header { padding: 8px 12px 0; } .hosting-nav { padding: 11px 14px; border-radius: 16px; } .hosting-nav-note { font-size: .68rem; text-align: right; } .hosting-hero { padding: 58px 18px 58px; } .hosting-hero h1 { font-size: clamp(2.55rem,12vw,3.7rem); } .hosting-hero::before { right: -12%; } .hosting-hero::after { left: -10%; } .hosting-section { padding: 58px 18px; } .hosting-grid, .hosting-faq, .hosting-checklist { grid-template-columns: 1fr; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
@@ -96,7 +84,7 @@
       <h1>More than hosting.<br><em>Peace of mind, monthly.</em></h1>
       <p>Keep your business website online, cared for and ready for customers. Richedel Digital's website-care subscription brings hosting, ongoing maintenance, practical support and security upkeep together in one service.</p>
       <div class="hosting-actions">
-        <a class="btn btn-primary" href="#request">Ask about a hosting plan <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-primary" href="#subscription">Subscribe to your hosting plan <span aria-hidden="true">↗</span></a>
         <a class="btn btn-secondary" href="#included">See what's included</a>
       </div>
       <div class="hosting-proof" aria-label="Service highlights">
@@ -154,7 +142,7 @@
             <li>Security and update upkeep</li>
           </ul>
         </div>
-        <aside class="hosting-price-card">
+        <aside class="hosting-price-card" id="subscription">
           <span class="small-label">Monthly subscription</span>
           <h3>Built around your website.</h3>
           <p>Every website has different hosting, traffic and support requirements. We will review your site and recommend a monthly scope that makes sense for it.</p>
@@ -196,49 +184,7 @@
       </div>
     </section>
 
-    <section class="hosting-contact" id="request">
-      <div class="hosting-contact-box">
-        <span class="hosting-kicker">Get a tailored monthly quote</span>
-        <h2>Let's keep your website in good shape.</h2>
-        <p>Tell us a little about your website. We'll review what it needs and get back to you about a suitable hosting and care subscription.</p>
-        <form class="hosting-form" action="https://formspree.io/f/xbgloyrl" method="POST">
-          <input type="hidden" name="_subject" value="Website Hosting & Care Subscription Enquiry">
-          <div class="hosting-field">
-            <label for="hosting-name">Your name</label>
-            <input id="hosting-name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="hosting-field">
-            <label for="hosting-email">Email address</label>
-            <input id="hosting-email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="hosting-field">
-            <label for="hosting-business">Business name</label>
-            <input id="hosting-business" name="business" type="text" autocomplete="organization">
-          </div>
-          <div class="hosting-field">
-            <label for="hosting-url">Website address</label>
-            <input id="hosting-url" name="website" type="url" placeholder="https://example.com">
-          </div>
-          <div class="hosting-field full">
-            <label for="hosting-needs">What would you like help with?</label>
-            <select id="hosting-needs" name="main_need">
-              <option value="Hosting, maintenance, support and security">The full hosting and care subscription</option>
-              <option value="Hosting">Hosting</option>
-              <option value="Maintenance and updates">Maintenance and updates</option>
-              <option value="Support">Website support</option>
-              <option value="Security">Security and upkeep</option>
-              <option value="Not sure yet">Not sure yet — please advise</option>
-            </select>
-          </div>
-          <div class="hosting-field full">
-            <label for="hosting-message">Anything else we should know?</label>
-            <textarea id="hosting-message" name="message" placeholder="Tell us about your website or any current issues..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Request a monthly quote <span aria-hidden="true">↗</span></button>
-        </form>
-        <p class="hosting-smallprint">Submitting this form is an enquiry only. It does not start a subscription or create a payment obligation.</p>
-      </div>
-    </section>
+    
   </main>
 
   <footer class="hosting-footer">
